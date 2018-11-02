@@ -12,7 +12,9 @@ string2 = "hello"
 
 final = string1 + " " + string2
 
-print("this is a concatenation using to upper " + final.upper() + "!")
+print("this is a concatenation using to upper " + string1.rstrip() + string2.rstrip() + "!")
 
 
-boob = "book"
+age = 23
+
+print("happy " + str(age) + "rd birthday")
