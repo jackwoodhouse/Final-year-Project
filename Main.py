@@ -1,37 +1,15 @@
 # from nltk.corpus import stopwords
 # print(stopwords.words('english'))
 
+import wx
 
-message = ("hello world")
-print(message)
-
-
-string1 = 'hello'
-
-string2 = "hello"
-
-final = string1 + " " + string2
-
-print("this is using to upper and strips white space" + string1.rstrip() + string2.rstrip() + "!")
+app = wx.App()
 
 
-age = 23
+frame = wx.Frame(None, -1, 'Title')
 
-print("happy " + str(age) + "rd birthday")
+frame.Show()
 
-bikes = ['trek', 'redline','mongo', ]
-
-print(bikes)
+app.MainLoop()
 
 
-print(bikes[2].title())
-
-bikes.append('new bike name')
-
-
-print(bikes)
-
-bikes.insert(3,' new second bike')
-
-
-print(bikes)
