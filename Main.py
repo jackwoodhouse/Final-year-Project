@@ -50,16 +50,40 @@ class GUI(wx.Frame):
         boxsizer.Add(wx.CheckBox(panel, label="Generate Default Constructor"), flag=wx.LEFT, border=5)
         boxsizer.Add(wx.CheckBox(panel, label="Generate Main Method"), flag=wx.LEFT|wx.BOTTOM, border=5)
         sizer.Add(boxsizer, pos=(6, 0), span=(1, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
+
+
         button3 = wx.Button(panel, label='Help')
         sizer.Add(button3, pos=(8, 0), flag=wx.LEFT, border=10)
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Help, button3)
+
+
         button4 = wx.Button(panel, label="Ok")
         sizer.Add(button4, pos=(8, 3))
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Submit, button4)
+
         button5 = wx.Button(panel, label="Cancel")
         sizer.Add(button5, pos=(8, 4), span=(1, 1), flag=wx.BOTTOM|wx.RIGHT, border=10)
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Exit, button5)
+
+
+
 
         sizer.AddGrowableCol(2)
         panel.SetSizer(sizer)
         sizer.Fit(self)
+
+    def OnButton_Exit( self, event ) :
+          # The button that generated this event:
+          button5 = self.Close()
+
+    def OnButton_Help( self, event ) :
+          # The button that generated this event:
+          button3 = self.Close()
+
+    def OnButton_Submit( self, event ) :
+          # The button that generated this event:
+          button4 = self.Close()
+
 
 
 def main():
