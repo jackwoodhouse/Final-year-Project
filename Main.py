@@ -39,10 +39,6 @@ class GUI(wx.Frame):
         tc5 = wx.TextCtrl(panel)
         sizer.Add(tc5, pos=(5, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND, border=5)
 
-
-
-
-
         sb = wx.StaticBox(panel, label="Optional Attributes")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
 
@@ -52,38 +48,52 @@ class GUI(wx.Frame):
         sizer.Add(boxsizer, pos=(6, 0), span=(1, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
 
-        button3 = wx.Button(panel, label='Help')
-        sizer.Add(button3, pos=(8, 0), flag=wx.LEFT, border=10)
-        self.Bind(wx.EVT_BUTTON, self.OnButton_Help, button3)
+        helpButton = wx.Button(panel, label='Help')
+        sizer.Add(helpButton, pos=(8, 0), flag=wx.LEFT, border=10)
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Help, helpButton)
 
 
-        button4 = wx.Button(panel, label="Ok")
-        sizer.Add(button4, pos=(8, 3))
-        self.Bind(wx.EVT_BUTTON, self.OnButton_Submit, button4)
-
-        button5 = wx.Button(panel, label="Cancel")
-        sizer.Add(button5, pos=(8, 4), span=(1, 1), flag=wx.BOTTOM|wx.RIGHT, border=10)
-        self.Bind(wx.EVT_BUTTON, self.OnButton_Exit, button5)
+        submitButton = wx.Button(panel, label="Submit")
+        sizer.Add(submitButton, pos=(8, 3))
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Submit, submitButton)
 
 
-
+        exitButton = wx.Button(panel, label="Cancel")
+        sizer.Add(exitButton, pos=(8, 4), span=(1, 1), flag=wx.BOTTOM|wx.RIGHT, border=10)
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Exit, exitButton)
 
         sizer.AddGrowableCol(2)
         panel.SetSizer(sizer)
         sizer.Fit(self)
 
-    def OnButton_Exit( self, event ) :
-          # The button that generated this event:
-          button5 = self.Close()
 
     def OnButton_Help( self, event ) :
-          # The button that generated this event:
-          button3 = self.Close()
+        # The button that generated this event:
+        helpButton = wx.MessageBox('Download completed', 'Info', wx.OK | wx.ICON_INFORMATION)
+
+
+
 
     def OnButton_Submit( self, event ) :
-          # The button that generated this event:
-          button4 = self.Close()
+        # The button that generated this event:
+        submitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit', style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
+        result = submitButton.ShowModal()
+        submitButton.Destroy()
 
+        if result == wx.ID_YES:
+            print(' CLOSED ')
+        else:
+            print(' CLOSED ')
+
+    def OnButton_Exit( self, event ) :
+        exitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit', style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
+        result = exitButton.ShowModal()
+        exitButton.Destroy()
+
+        if result == wx.ID_YES:
+            exitButton = self.Close()
+        else:
+            print(' CLOSED ')
 
 
 def main():
