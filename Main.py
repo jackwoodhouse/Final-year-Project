@@ -81,7 +81,7 @@ class GUI(wx.Frame):
         submitButton.Destroy()
 
         if result == wx.ID_YES:
-            print(' CLOSED ')
+            print(' TEST ')
         else:
             print(' CLOSED ')
 
