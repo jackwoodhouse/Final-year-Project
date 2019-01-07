@@ -1,3 +1,5 @@
+
+from Person import User
 import wx
 
 class GUI(wx.Frame):
@@ -12,7 +14,6 @@ class GUI(wx.Frame):
     def InitUI(self):
 
         locationList = ["South Yorkshire", "London", "Cambridge"]
-        dateList = ["18-24", "25-49", "49-74", "75-99"]
         genderList = ["Male", "Female"]
         panel = wx.Panel(self)
         sizer = wx.GridBagSizer(10, 10)
@@ -24,31 +25,30 @@ class GUI(wx.Frame):
 
         text2 = wx.StaticText(panel, label="First Name")
         sizer.Add(text2, pos=(2, 0), flag=wx.LEFT, border=10)
-        tc1 = wx.TextCtrl(panel)
-        sizer.Add(tc1, pos=(2, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
+        self.nameBox1 = wx.TextCtrl(panel)
+        sizer.Add(self.nameBox1, pos=(2, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
         text3 = wx.StaticText(panel, label="Last Name")
         sizer.Add(text3, pos=(3, 0), flag=wx.LEFT, border=10)
-        tc13 = wx.TextCtrl(panel)
-        sizer.Add(tc13, pos=(3, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
+        self.nameBox2 = wx.TextCtrl(panel)
+        sizer.Add(self.nameBox2, pos=(3, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
         text4 = wx.StaticText(panel, label="Age")
         sizer.Add(text4, pos=(4, 0), flag=wx.LEFT|wx.TOP, border=10)
-        dol = wx.ComboBox(panel)
-        dol.SetItems(dateList)
-        sizer.Add(dol, pos=(4, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND, border=5)
+        self.ageBox = wx.TextCtrl(panel)
+        sizer.Add(self.ageBox, pos=(4, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
         text5 = wx.StaticText(panel, label="Place Of Birth")
         sizer.Add(text5, pos=(5, 0), flag=wx.TOP|wx.LEFT, border=10)
-        lol = wx.ComboBox(panel)
-        lol.SetItems(locationList)
-        sizer.Add(lol, pos=(5, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND, border=5)
+        self.location = wx.ComboBox(panel, choices=locationList)
+
+        sizer.Add(self.location, pos=(5, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND, border=5)
 
         text6 = wx.StaticText(panel, label="Gender")
         sizer.Add(text6, pos=(6, 0), flag=wx.TOP|wx.LEFT, border=10)
-        gel = wx.ComboBox(panel)
-        gel.SetItems(genderList)
-        sizer.Add(gel, pos=(6, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND, border=5)
+        self.gender = wx.ComboBox(panel, choices=genderList)
+
+        sizer.Add(self.gender, pos=(6, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND, border=5)
 
         sb = wx.StaticBox(panel, label="Optional Attributes")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
@@ -82,7 +82,16 @@ class GUI(wx.Frame):
         submitButton.Destroy()
 
         if result == wx.ID_YES:
-            print(' TEST ')
+
+            firstName = self.nameBox1.GetValue()
+            lastName = self.nameBox2.GetValue()
+            age = self.ageBox.GetValue()
+            location = self.location.GetValue()
+            gender = self.gender.GetValue()
+            user1 = User(firstName, lastName, age, location, gender)
+
+            user1.displayUser()
+
         else:
             print(' CLOSED ')
 

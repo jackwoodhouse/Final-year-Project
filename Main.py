@@ -1,4 +1,5 @@
 from GUI import GUI
+
 import wx
 
 def main():
