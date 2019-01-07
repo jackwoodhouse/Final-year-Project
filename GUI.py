@@ -4,6 +4,9 @@ import wx
 
 class GUI(wx.Frame):
 
+    app = wx.App()
+    app.MainLoop()
+
     def __init__(self, parent, title):
 
         super(GUI, self).__init__(parent, title=title)
@@ -69,6 +72,8 @@ class GUI(wx.Frame):
         sizer.AddGrowableCol(2)
         panel.SetSizer(sizer)
         sizer.Fit(self)
+
+
 
 
     def OnButton_Help( self, event ) :
