@@ -88,9 +88,9 @@ class GUI(wx.Frame):
             age = self.ageBox.GetValue()
             location = self.location.GetValue()
             gender = self.gender.GetValue()
-            user1 = User(firstName, lastName, age, location, gender)
+            new_user = User(firstName, lastName, age, location, gender)
 
-            user1.displayUser()
+            new_user.displayUser()
 
         else:
             print(' CLOSED ')
