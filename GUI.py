@@ -1,5 +1,6 @@
 
 from Person import User
+from Input import Language
 import wx
 
 class GUI(wx.Frame):
@@ -36,37 +37,30 @@ class GUI(wx.Frame):
         self.nameBox2 = wx.TextCtrl(panel)
         sizer.Add(self.nameBox2, pos=(3, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
-        text4 = wx.StaticText(panel, label="Age")
-        sizer.Add(text4, pos=(4, 0), flag=wx.LEFT|wx.TOP, border=10)
-        self.ageBox = wx.TextCtrl(panel)
-        sizer.Add(self.ageBox, pos=(4, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
-
-        text5 = wx.StaticText(panel, label="Place Of Birth")
-        sizer.Add(text5, pos=(5, 0), flag=wx.TOP|wx.LEFT, border=10)
-        self.location = wx.ComboBox(panel, choices=locationList)
-
-        sizer.Add(self.location, pos=(5, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND, border=5)
-
-        text6 = wx.StaticText(panel, label="Gender")
-        sizer.Add(text6, pos=(6, 0), flag=wx.TOP|wx.LEFT, border=10)
-        self.gender = wx.ComboBox(panel, choices=genderList)
-
-        sizer.Add(self.gender, pos=(6, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND, border=5)
-
-        sb = wx.StaticBox(panel, label="Optional Attributes")
+        sb = wx.StaticBox(panel, label="Give a short description of yourself including Age, Gender, Height, Weight and City")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
-        sizer.Add(boxsizer, pos=(7, 0), span=(1, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
+        self.descBox = wx.TextCtrl(panel, -1, size=(500, 100))
+        boxsizer.Add(self.descBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
+        sizer.Add(boxsizer, pos=(5, 0), span=(5, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
+
+        sb = wx.StaticBox(panel, label="Results")
+        boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
+        self.answerBox = wx.TextCtrl(panel, -1, size=(500, 100))
+        boxsizer.Add(self.answerBox,
+            flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
+        sizer.Add(boxsizer, pos=(10, 0), span=(5, 5),
+            flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
         helpButton = wx.Button(panel, label='Help')
-        sizer.Add(helpButton, pos=(8, 0), flag=wx.LEFT, border=10)
+        sizer.Add(helpButton, pos=(15, 0), flag=wx.LEFT, border=10)
         self.Bind(wx.EVT_BUTTON, self.OnButton_Help, helpButton)
 
         submitButton = wx.Button(panel, label="Submit")
-        sizer.Add(submitButton, pos=(8, 3))
+        sizer.Add(submitButton, pos=(15, 3))
         self.Bind(wx.EVT_BUTTON, self.OnButton_Submit, submitButton)
 
         exitButton = wx.Button(panel, label="Cancel")
-        sizer.Add(exitButton, pos=(8, 4), span=(1, 1), flag=wx.BOTTOM|wx.RIGHT, border=10)
+        sizer.Add(exitButton, pos=(15, 4), span=(1, 1), flag=wx.BOTTOM|wx.RIGHT, border=10)
         self.Bind(wx.EVT_BUTTON, self.OnButton_Exit, exitButton)
 
         sizer.AddGrowableCol(2)
@@ -77,11 +71,11 @@ class GUI(wx.Frame):
 
 
     def OnButton_Help( self, event ) :
-        # The button that generated this event:
+
         helpButton = wx.MessageBox('Download completed', 'Info', wx.OK | wx.ICON_INFORMATION)
 
     def OnButton_Submit( self, event ) :
-        # The button that generated this event:
+
         submitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit', style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
         result = submitButton.ShowModal()
         submitButton.Destroy()
@@ -90,12 +84,14 @@ class GUI(wx.Frame):
 
             firstName = self.nameBox1.GetValue()
             lastName = self.nameBox2.GetValue()
-            age = self.ageBox.GetValue()
-            location = self.location.GetValue()
-            gender = self.gender.GetValue()
-            new_user = User(firstName, lastName, age, location, gender)
+            text = self.descBox.GetValue()
 
-            new_user.displayUser()
+            text = Language(text)
+
+            print(Language.f1(text))
+
+
+
 
         else:
             print(' CLOSED ')
