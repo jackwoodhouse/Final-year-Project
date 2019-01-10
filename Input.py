@@ -13,6 +13,4 @@ class Language:
     def f1(self):
 
         words = nltk.word_tokenize(self.Text)
-
-
         return words
