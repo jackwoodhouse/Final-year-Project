@@ -1,7 +1,7 @@
 
 class User:
 
-    class_counter=0
+    class_counter = 0
 
     def __init__(self, firstName, lastName, age, location, gender):
 

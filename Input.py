@@ -1,15 +1,18 @@
 import nltk
 from nltk import word_tokenize
 
+
 class Language:
 
 
-    def __init__(self, Text):
+    def __init__(self, text):
 
-        self.text = Text
+        self.Text = text
 
-    def f1(text):
 
-        words = nltk.sent_tokenize(text)
+    def f1(self):
 
-        return text
+        words = nltk.word_tokenize(self.Text)
+
+
+        return words
