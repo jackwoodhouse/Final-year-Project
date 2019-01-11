@@ -17,8 +17,7 @@ class GUI(wx.Frame):
 
     def InitUI(self):
 
-        locationList = ["South Yorkshire", "London", "Cambridge"]
-        genderList = ["Male", "Female"]
+
         panel = wx.Panel(self)
         sizer = wx.GridBagSizer(10, 10)
 
@@ -46,10 +45,8 @@ class GUI(wx.Frame):
         sb = wx.StaticBox(panel, label="Results")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
         self.answerBox = wx.TextCtrl(panel, -1, size=(500, 100))
-        boxsizer.Add(self.answerBox,
-            flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
-        sizer.Add(boxsizer, pos=(10, 0), span=(5, 5),
-            flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
+        boxsizer.Add(self.answerBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
+        sizer.Add(boxsizer, pos=(10, 0), span=(5, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
         helpButton = wx.Button(panel, label='Help')
         sizer.Add(helpButton, pos=(15, 0), flag=wx.LEFT, border=10)
@@ -68,15 +65,14 @@ class GUI(wx.Frame):
         sizer.Fit(self)
 
 
-
-
     def OnButton_Help( self, event ) :
 
         helpButton = wx.MessageBox('Download completed', 'Info', wx.OK | wx.ICON_INFORMATION)
 
     def OnButton_Submit( self, event ) :
 
-        submitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit', style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
+        submitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit',
+                                        style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
         result = submitButton.ShowModal()
         submitButton.Destroy()
 
@@ -86,18 +82,16 @@ class GUI(wx.Frame):
             lastName = self.nameBox2.GetValue()
             text = self.descBox.GetValue()
 
-            text = Language(text)
+            language = Language(text)
 
-            print(Language.f1(text))
-
-
-
+            print(Language.f1(language))
 
         else:
             print(' CLOSED ')
 
     def OnButton_Exit( self, event ) :
-        exitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit', style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
+        exitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit',
+                                      style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
         result = exitButton.ShowModal()
         exitButton.Destroy()
 
