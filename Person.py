@@ -3,15 +3,15 @@ class User:
 
     class_counter = 1
 
-    def __init__(self, firstName, lastName, description):
+    def __init__(self, first_name, last_name, description):
 
-
-        self.firstName = firstName
-        self.lastName = lastName
+        self.first_name = first_name
+        self.last_name = last_name
         self.description = description
-        self.uniqueId = User.class_counter
+        self.unique_Id = User.class_counter
         User.class_counter += 1
 
-    def displayUser(self):
-        print("ID : ", self.uniqueId, " First Name : ", self.firstName, " Last Name : ", self.lastName, " Your information : ", self.description)
+    def display_user(self):
+        print("ID : ", self.unique_Id, " First Name : ", self.first_name, " Last Name : ", self.last_name,
+              " Your information : ", self.description)
 

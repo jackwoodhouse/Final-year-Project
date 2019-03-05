@@ -17,7 +17,6 @@ class GUI(wx.Frame):
 
     def InitUI(self):
 
-
         panel = wx.Panel(self)
         sizer = wx.GridBagSizer(10, 10)
 
@@ -36,7 +35,8 @@ class GUI(wx.Frame):
         self.nameBox2 = wx.TextCtrl(panel)
         sizer.Add(self.nameBox2, pos=(3, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
-        sb = wx.StaticBox(panel, label="Give a short description of yourself including Age, Gender, Height, Weight and Place of Birth")
+        sb = wx.StaticBox(panel, label="Give a short description of yourself including"
+                                       "Age, Gender, Height, Weight and Place of Birth")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
         self.descBox = wx.TextCtrl(panel, -1, size=(500, 100))
         boxsizer.Add(self.descBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
@@ -48,60 +48,60 @@ class GUI(wx.Frame):
         boxsizer.Add(self.answerBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
         sizer.Add(boxsizer, pos=(10, 0), span=(5, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
-        helpButton = wx.Button(panel, label='Help')
-        sizer.Add(helpButton, pos=(15, 0), flag=wx.LEFT, border=10)
-        self.Bind(wx.EVT_BUTTON, self.OnButton_Help, helpButton)
+        help_button = wx.Button(panel, label='Help')
+        sizer.Add(help_button, pos=(15, 0), flag=wx.LEFT, border=10)
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Help, help_button)
 
-        submitButton = wx.Button(panel, label="Submit")
-        sizer.Add(submitButton, pos=(15, 3))
-        self.Bind(wx.EVT_BUTTON, self.OnButton_Submit, submitButton)
+        submit_button = wx.Button(panel, label="Submit")
+        sizer.Add(submit_button, pos=(15, 3))
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Submit, submit_button)
 
-        exitButton = wx.Button(panel, label="Cancel")
-        sizer.Add(exitButton, pos=(15, 4), span=(1, 1), flag=wx.BOTTOM|wx.RIGHT, border=10)
-        self.Bind(wx.EVT_BUTTON, self.OnButton_Exit, exitButton)
+        exit_button = wx.Button(panel, label="Cancel")
+        sizer.Add(exit_button, pos=(15, 4), span=(1, 1), flag=wx.BOTTOM|wx.RIGHT, border=10)
+        self.Bind(wx.EVT_BUTTON, self.OnButton_Exit, exit_button)
 
         sizer.AddGrowableCol(2)
         panel.SetSizer(sizer)
         sizer.Fit(self)
 
 
-    def OnButton_Help( self, event ) :
+    def OnButton_Help(self, event):
+        help_button = wx.MessageBox('This help button will contain some basic information on what the program will do '
+                                    'and how you should format the information you enter',
+                                    'Info', wx.OK | wx.ICON_INFORMATION)
 
-        helpButton = wx.MessageBox('This help button will contain some basic information on what the program will do and how you should format the information you enter',
-                                   'Info', wx.OK | wx.ICON_INFORMATION)
+    def OnButton_Submit(self, event):
 
-    def OnButton_Submit( self, event ) :
-
-        submitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit',
+        submit_button = wx.MessageDialog(None, 'Are you sure?', caption='Submit',
                                         style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
-        result = submitButton.ShowModal()
-        submitButton.Destroy()
+        result = submit_button.ShowModal()
+        submit_button.Destroy()
 
         if result == wx.ID_YES:
 
-            firstName = self.nameBox1.GetValue()
-            lastName = self.nameBox2.GetValue()
+            first_name = self.nameBox1.GetValue()
+            last_name = self.nameBox2.GetValue()
             description = self.descBox.GetValue()
 
-            new_user = User(firstName, lastName, description);
+            new_user = User(first_name, last_name, description);
 
             language = Language(description)
 
             print(Language.f1(language))
 
-            print(User.displayUser(new_user))
+            print(User.display_user(new_user))
 
         else:
             print(' CLOSED ')
 
     def OnButton_Exit( self, event):
 
-        exitButton = wx.MessageDialog(None, 'Are you sure?', caption='Submit',
+        exit_button = wx.MessageDialog(None, 'Are you sure?', caption='Submit',
                                       style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
-        result = exitButton.ShowModal()
-        exitButton.Destroy()
+        result = exit_button.ShowModal()
+        exit_button.Destroy()
 
         if result == wx.ID_YES:
-            exitButton = self.Close()
+            exit_button = self.Close()
         else:
             print(' CLOSED ')
