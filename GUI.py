@@ -35,8 +35,8 @@ class GUI(wx.Frame):
         self.nameBox2 = wx.TextCtrl(panel)
         sizer.Add(self.nameBox2, pos=(3, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
-        sb = wx.StaticBox(panel, label="Give a short description of yourself including"
-                                       "Age, Gender, Height, Weight and Place of Birth")
+        sb = wx.StaticBox(panel, label="Give a short description of yourself including "
+                                       "Age, Gender, and Place of Birth")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
         self.descBox = wx.TextCtrl(panel, -1, size=(500, 100))
         boxsizer.Add(self.descBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
@@ -87,7 +87,7 @@ class GUI(wx.Frame):
 
             language = Language(description)
 
-            print(Language.f1(language))
+            print(Language.processContent(language))
 
             print(User.display_user(new_user))
 
@@ -96,7 +96,7 @@ class GUI(wx.Frame):
 
     def OnButton_Exit( self, event):
 
-        exit_button = wx.MessageDialog(None, 'Are you sure?', caption='Submit',
+        exit_button = wx.MessageDialog(None, 'Are you sure?', caption='Close',
                                       style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_EXCLAMATION)
         result = exit_button.ShowModal()
         exit_button.Destroy()
