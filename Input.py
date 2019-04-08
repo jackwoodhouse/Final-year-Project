@@ -3,6 +3,8 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.tokenize import PunktSentenceTokenizer
 import re
+import csv
+import pandas
 
 # CC	coordinating conjunction
 # CD	cardinal digit
@@ -64,16 +66,38 @@ class Language:
         print(ageMatch.group().split()[1])
         print(locationMatch.group().split()[1])
 
-        stop_words = set(stopwords.words("english"))
 
-        # words = word_tokenize(self.Text)
-
-        filtered_sentence = []
-
-        for w in words:
-            if w not in stop_words:
-                filtered_sentence.append(w)
+        # user input validatio here or on gui side
 
 
-        return filtered_sentence
+        # stop_words = set(stopwords.words("english"))
+        #
+        # # words = word_tokenize(self.Text)
+        #
+        # filtered_sentence = []
+        #
+        # for w in words:
+        #     if w not in stop_words:
+        #         filtered_sentence.append(w)
+
+        # f = open('data.csv')
+        #
+        # csv_f = csv.reader(f)
+        #
+        # for row in csv_f:
+        #     print(row)
+
+        data = pandas.read_csv("data.csv", index_col=0)
+
+        data.index = ["GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
+                      "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
+                      "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF"]
+
+        print(data)
+
+
+        # compare the user input to the csv files from pandas
+
+        # return the correct csv info to the user
+        return words
 

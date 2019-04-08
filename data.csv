@@ -1,0 +1,25 @@
+,Indicator_Name,Area_Name,Sex,Age,Time_period,Results
+0,"Syphilis diagnostic rate / 100,000",England,Persons,"All ages",2017,12.5
+1,"Syphilis diagnostic rate / 100,000",London region,Persons,"All ages",2017,38.7
+2,"Syphilis diagnostic rate / 100,000",Nottingham,Persons,"All ages",2017,16.6
+3,"Syphilis diagnostic rate / 100,000",York,Persons,"All ages",2017,5.3
+4,"Syphilis diagnostic rate / 100,000",Doncaster,Persons,"All ages",2017,5.5
+5,"Syphilis diagnostic rate / 100,000",Sheffield,Persons,"All ages",2017,9.1
+6,"Syphilis diagnostic rate / 100,000",Leeds,Persons,"All ages",2017,11.3
+7,"Syphilis diagnostic rate / 100,000",Wakefield,Persons,"All ages",2017,13.1
+8,"Gonorrhoea diagnostic rate / 100,000",England,Persons,"All ages",2017,78.8
+9,"Gonorrhoea diagnostic rate / 100,000",London region,Persons,"All ages",2017,228.4
+10,"Gonorrhoea diagnostic rate / 100,000",Nottingham,Persons,"All ages",2017,147.5
+11,"Gonorrhoea diagnostic rate / 100,000",York,Persons,"All ages",2017,66.2
+12,"Gonorrhoea diagnostic rate / 100,000",Doncaster,Persons,"All ages",2017,56.9
+13,"Gonorrhoea diagnostic rate / 100,000",Sheffield,Persons,"All ages",2017,58.2
+14,"Gonorrhoea diagnostic rate / 100,000",Leeds,Persons,"All ages",2017,96.8
+15,"Gonorrhoea diagnostic rate / 100,000",Wakefield,Persons,"All ages",2017,40.9
+16,"Chlamydia detection rate / 100,000",England,Persons,"15-24",2017,1882
+17,"Chlamydia detection rate / 100,000",London region,Persons,"15-24",2017,2199
+18,"Chlamydia detection rate / 100,000",Nottingham,Persons,"15-24",2017,2128
+19,"Chlamydia detection rate / 100,000",York,Persons,"15-24",2017,1985
+20,"Chlamydia detection rate / 100,000",Doncaster,Persons,"15-24",2017,2416
+21,"Chlamydia detection rate / 100,000",Sheffield,Persons,"15-24",2017,1695
+22,"Chlamydia detection rate / 100,000",Leeds,Persons,"15-24",2017,3475
+23,"Chlamydia detection rate / 100,000",Wakefield,Persons,"15-24",2017,2161
