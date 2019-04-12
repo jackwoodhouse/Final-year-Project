@@ -3,7 +3,6 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.tokenize import PunktSentenceTokenizer
 import re
-import csv
 import pandas
 
 # CC	coordinating conjunction
@@ -66,9 +65,7 @@ class Language:
         print(ageMatch.group().split()[1])
         print(locationMatch.group().split()[1])
 
-
         # user input validatio here or on gui side
-
 
         # stop_words = set(stopwords.words("english"))
         #
@@ -93,8 +90,7 @@ class Language:
                       "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
                       "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF"]
 
-        print(data)
-
+        print(data.loc[["GB"]])
 
         # compare the user input to the csv files from pandas
 
