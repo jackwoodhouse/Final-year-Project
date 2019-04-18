@@ -49,51 +49,63 @@ class Language:
 
     def processContent(self):
 
+        userInput = self.Text
+
         genderRegex = r"[G|g]ender:\s?[a-zA-Z]+"
         ageRegex = r"[A|a]ge:\s?[0-9]+"
         locationRegex = r"[L|l]ocation:\s?[a-zA-Z]+"
 
-        words = self.Text
+        genderMatch = re.search(genderRegex, userInput, re.MULTILINE)
 
-        genderMatch = re.search(genderRegex, words, re.MULTILINE)
+        ageMatch = re.search(ageRegex, userInput, re.MULTILINE)
 
-        ageMatch = re.search(ageRegex, words, re.MULTILINE)
-
-        locationMatch = re.search(locationRegex, words, re.MULTILINE)
+        locationMatch = re.search(locationRegex, userInput, re.MULTILINE)
 
         print(genderMatch.group().split()[1])
         print(ageMatch.group().split()[1])
         print(locationMatch.group().split()[1])
 
+        location = locationMatch.group().split()[1]
+
+        Age = ageMatch.group().split()[1]
+
+        Gender = genderMatch.group().split()[1]
+
+        if location == 'Sheffield':
+            location = 'SHF'
+
+        if Age >= '24':
+            Age = 'All ages'
+
+        if Gender == 'Male':
+            Gender = 'Persons'
+        elif Gender == 'Female':
+            Gender = 'Persons'
+
+        print(location)
+        print(Age)
+        print(Gender)
+
+        # location: Sheffield, age: 1, gender: male
+
         # user input validatio here or on gui side
 
-        # stop_words = set(stopwords.words("english"))
-        #
-        # # words = word_tokenize(self.Text)
-        #
-        # filtered_sentence = []
-        #
-        # for w in words:
-        #     if w not in stop_words:
-        #         filtered_sentence.append(w)
 
-        # f = open('data.csv')
-        #
-        # csv_f = csv.reader(f)
-        #
-        # for row in csv_f:
-        #     print(row)
-
-        data = pandas.read_csv("data.csv", index_col=0)
+        data = pandas.read_csv("data.csv", delimiter=',',index_col=0)
 
         data.index = ["GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
                       "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
                       "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF"]
+
+
+        sheffieldFilter = data.Area_name = 'Sheffield'
+        ageFilter = data.Age = "All ages"
+        filter = sheffieldFilter
 
         print(data.loc[["GB"]])
 
         # compare the user input to the csv files from pandas
 
         # return the correct csv info to the user
-        return words
+        return userInput
 
