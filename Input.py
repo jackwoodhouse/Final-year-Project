@@ -65,27 +65,26 @@ class Language:
         Gender = genderMatch.group().split()[1]
 
         Location = Location.title()
-        if Age >= '24':
-            Age = 'All Ages'
-        elif Age <= '17':
-         Age = '18'
+
+        if Age <= '24':
+            Age = '18-24'
+
+        elif Age <= '50':
+            Age = '25-50'
+
+        elif Age <= '75':
+            Age = '51-75'
+
+        print(Age)
 
         if Gender == 'Male' or Gender == 'male':
             Gender = 'Persons'
         elif Gender == 'Female' or Gender == 'female':
             Gender = 'Persons'
 
-        print(Location)
-        print(Age)
-        print(Gender)
-
         # location: Sheffield, age: 1, gender: male
 
         data = pandas.read_csv("HealthData.csv", delimiter=',',index_col=0)
-
-        # data.index = ["GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
-        #               "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
-        #               "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF"]
 
         AreaFilter = data['Area_Name'] == Location
         ageFilter = data['Age'] == Age
@@ -95,7 +94,3 @@ class Language:
         print(data[filter])
 
         data[filter].to_json('results.txt')
-
-
-        return userInput
-

@@ -1,4 +1,3 @@
-
 class User:
 
     class_counter = 1
