@@ -75,6 +75,8 @@ class Language:
         elif Age <= '75':
             Age = '51-75'
 
+        print(Location)
+        print(Gender)
         print(Age)
 
         if Gender == 'Male' or Gender == 'male':
@@ -82,7 +84,6 @@ class Language:
         elif Gender == 'Female' or Gender == 'female':
             Gender = 'Persons'
 
-        # location: Sheffield, age: 1, gender: male
 
         data = pandas.read_csv("HealthData.csv", delimiter=',',index_col=0)
 
@@ -93,4 +94,6 @@ class Language:
 
         print(data[filter])
 
-        data[filter].to_json('results.txt')
+        open('results.txt', 'w').close()
+
+        data[filter].to_csv(r'results.txt', header=None, index=None, sep=' ', mode='a')

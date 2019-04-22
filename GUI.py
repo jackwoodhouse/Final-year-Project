@@ -66,7 +66,8 @@ class GUI(wx.Frame):
 
     def OnButton_Help(self, event):
         help_button = wx.MessageBox('Please enter your information in this format: location: , age: , gender: ,'
-                                    ' The order is not important however please include these 3 attributes.',
+                                    ' The order is not important however please include these 3 attributes.'
+                                    ' For example: Location: Leeds, Age: 55, Gender: Male',
                                     'Info', wx.OK | wx.ICON_INFORMATION)
 
     def OnButton_Submit(self, event):
@@ -105,5 +106,7 @@ class GUI(wx.Frame):
         exit_button.Destroy()
 
         if result == wx.ID_YES:
+            open('results.txt', 'w').close()
             exit_button = self.Close()
+
 
