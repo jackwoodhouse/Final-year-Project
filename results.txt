@@ -1,0 +1,1 @@
+{"Indicator_Name":{"21":"Chlamydia detection rate \/ 100,000"},"Area_Name":{"21":"Sheffield"},"Sex":{"21":"Persons"},"Age":{"21":"18"},"Time_period":{"21":2017},"Results":{"21":"1.695%"}}

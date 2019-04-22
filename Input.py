@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import PunktSentenceTokenizer
 import re
 import pandas
+import numpy
 
 # CC	coordinating conjunction
 # CD	cardinal digit
@@ -56,56 +57,44 @@ class Language:
         locationRegex = r"[L|l]ocation:\s?[a-zA-Z]+"
 
         genderMatch = re.search(genderRegex, userInput, re.MULTILINE)
-
         ageMatch = re.search(ageRegex, userInput, re.MULTILINE)
-
         locationMatch = re.search(locationRegex, userInput, re.MULTILINE)
 
-        print(genderMatch.group().split()[1])
-        print(ageMatch.group().split()[1])
-        print(locationMatch.group().split()[1])
-
-        location = locationMatch.group().split()[1]
-
+        Location = locationMatch.group().split()[1]
         Age = ageMatch.group().split()[1]
-
         Gender = genderMatch.group().split()[1]
-
-        if location == 'Sheffield':
-            location = 'SHF'
 
         if Age >= '24':
             Age = 'All ages'
+        elif Age <= '17':
+         Age = '18'
 
-        if Gender == 'Male':
+        if Gender == 'Male' or Gender == 'male':
             Gender = 'Persons'
-        elif Gender == 'Female':
+        elif Gender == 'Female' or Gender == 'female':
             Gender = 'Persons'
 
-        print(location)
+        print(Location)
         print(Age)
         print(Gender)
 
         # location: Sheffield, age: 1, gender: male
 
-        # user input validatio here or on gui side
-
-
         data = pandas.read_csv("data.csv", delimiter=',',index_col=0)
 
-        data.index = ["GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
-                      "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
-                      "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF"]
+        # data.index = ["GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
+        #               "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
+        #               "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF"]
+
+        AreaFilter = data['Area_Name'] == Location
+        ageFilter = data['Age'] == Age
+        genderFilter = data['Sex'] == Gender
+        filter = AreaFilter & ageFilter & genderFilter
+
+        print(data[filter])
+
+        data[filter].to_json('results.txt')
 
 
-        sheffieldFilter = data.Area_name = 'Sheffield'
-        ageFilter = data.Age = "All ages"
-        filter = sheffieldFilter
-
-        print(data.loc[["GB"]])
-
-        # compare the user input to the csv files from pandas
-
-        # return the correct csv info to the user
         return userInput
 

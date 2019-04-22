@@ -44,7 +44,7 @@ class GUI(wx.Frame):
 
         sb = wx.StaticBox(panel, label="Results")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
-        self.answerBox = wx.TextCtrl(panel, -1, size=(500, 100))
+        self.answerBox = wx.TextCtrl(panel, -1, size=(500, 100), style= wx.TE_MULTILINE)
         boxsizer.Add(self.answerBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
         sizer.Add(boxsizer, pos=(10, 0), span=(5, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
@@ -88,6 +88,13 @@ class GUI(wx.Frame):
             language = Language(description)
 
             print(Language.processContent(language))
+
+            results = open("results.txt", "r")
+
+            self.answerBox.AppendText(results.read())
+            print(results.read())
+
+            results.close()
 
             print(User.display_user(new_user))
 
