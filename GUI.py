@@ -1,4 +1,3 @@
-
 from Person import User
 from Input import Language
 import wx
@@ -66,8 +65,8 @@ class GUI(wx.Frame):
 
 
     def OnButton_Help(self, event):
-        help_button = wx.MessageBox('This help button will contain some basic information on what the program will do '
-                                    'and how you should format the information you enter',
+        help_button = wx.MessageBox('Please enter your information in this format: location: , age: , gender: ,'
+                                    ' The order is not important however please include these 3 attributes.',
                                     'Info', wx.OK | wx.ICON_INFORMATION)
 
     def OnButton_Submit(self, event):
@@ -98,9 +97,6 @@ class GUI(wx.Frame):
 
             print(User.display_user(new_user))
 
-        else:
-            print(' CLOSED ')
-
     def OnButton_Exit( self, event):
 
         exit_button = wx.MessageDialog(None, 'Are you sure?', caption='Close',
@@ -110,5 +106,4 @@ class GUI(wx.Frame):
 
         if result == wx.ID_YES:
             exit_button = self.Close()
-        else:
-            print(' CLOSED ')
+

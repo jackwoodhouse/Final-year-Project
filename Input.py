@@ -64,8 +64,9 @@ class Language:
         Age = ageMatch.group().split()[1]
         Gender = genderMatch.group().split()[1]
 
+        Location = Location.title()
         if Age >= '24':
-            Age = 'All ages'
+            Age = 'All Ages'
         elif Age <= '17':
          Age = '18'
 
@@ -80,7 +81,7 @@ class Language:
 
         # location: Sheffield, age: 1, gender: male
 
-        data = pandas.read_csv("data.csv", delimiter=',',index_col=0)
+        data = pandas.read_csv("HealthData.csv", delimiter=',',index_col=0)
 
         # data.index = ["GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",
         #               "GB", "LDR", "NOT", "YRK", "DON", "SHF", "LDS", "WKF",

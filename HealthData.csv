@@ -1,0 +1,46 @@
+,Indicator_Name,Area_Name,Sex,Age,Time_period,Results
+0,"Hypertension Prevalence",England,Persons,"All Ages",2017/18,13.9%
+1,"Hypertension Prevalence",Nottingham,Persons,"All Ages",2017/18,20.8%
+2,"Hypertension Prevalence",York,Persons,"All Ages",2017/18,12.5%
+3,"Hypertension Prevalence",Doncaster,Persons,"All Ages",2017/18,21.0%
+4,"Hypertension Prevalence",Sheffield,Persons,"All Ages",2017/18,19.1%
+5,"Hypertension Prevalence",Leeds,Persons,"All Ages",2017/18,13.0%
+6,"Hypertension Prevalence",Wakefield,Persons,"All Ages",2017/18,19.1%
+7,"Stroke Prevalence",England,Persons,"All Ages",2017/18,1.8%
+8,"Stroke Prevalence",Nottingham,Persons,"All Ages",2017/18,1.4%
+9,"Stroke Prevalence",York,Persons,"All Ages",2017/18,1.8%
+10,"Stroke Prevalence",Sheffield,Persons,"All Ages",2017/18,1.9%
+11,"Stroke Prevalence",Doncaster,Persons,"All Ages",2017/18,2.0%
+12,"Stroke Prevalence",Leeds,Persons,"All Ages",2017/18,1.7%
+13,"Stroke Prevalence",Wakefield,Persons,"All Ages",2017/18,2.3%
+14,"Coronary Heart Disease",England,Persons,"All Ages",2014/15,3.1%
+15,"Coronary Heart Disease",Nottingham,Persons,"All Ages",2014/15,2.5%
+16,"Coronary Heart Disease",York,Persons,"All Ages",2014/15,2.9%
+17,"Coronary Heart Disease",Sheffield,Persons,"All Ages",2014/15,2.7%
+18,"Coronary Heart Disease",Doncaster,Persons,"All Ages",2014/15,3.6%
+19,"Coronary Heart Disease",Leeds,Persons,"All Ages",2014/15,2.2%
+20,"Coronary Heart Disease",Wakefield,Persons,"All Ages",2014/15,2.1%
+21,"Syphilis Detection Rate",England,Persons,"All Ages",2017/18,0.125%
+21,"Syphilis Detection Rate",London,Persons,"All Ages",2017/18,0.387%
+22,"Syphilis Detection Rate",Nottingham,Persons,"All Ages",2017/18,0.166%
+23,"Syphilis Detection Rate",York,Persons,"All Ages",2017/18,0.53%
+24,"Syphilis Detection Rate",Doncaster,Persons,"All Ages",2017/18,0.55%
+25,"Syphilis Detection Rate",Sheffield,Persons,"All Ages",2017/18,0.91%
+26,"Syphilis Detection Rate",Leeds,Persons,"All Ages",2017/18,0.113%
+27,"Syphilis Detection Rate",Wakefield,Persons,"All Ages",2017/18,0.0131%
+28,"Gonorrhoea Detection Rate",England,Persons,"All Ages",2017/18,0.0788%
+29,"Gonorrhoea Detection Rate",London,Persons,"All Ages",2017/18,0.228%
+30,"Gonorrhoea Detection Rate",Nottingham,Persons,"All Ages",2017/18,0.147%
+31,"Gonorrhoea Detection Rate",York,Persons,"All Ages",2017/18,0.662%
+32,"Gonorrhoea Detection Rate",Doncaster,Persons,"All Ages",2017/18,0.569%
+33,"Gonorrhoea Detection Rate",Sheffield,Persons,"All Ages",2017/18,0.582%
+34,"Gonorrhoea Detection Rate",Leeds,Persons,"All Ages",2017/18,0.968%
+35,"Gonorrhoea Detection Rate",Wakefield,Persons,"All Ages",2017/18,0.409%
+36,"Chlamydia Detection Rate",England,Persons,"All Ages",2017/18,1.8%
+37,"Chlamydia Detection Rate",London,Persons,"All Ages",2017/18,2.1%
+38,"Chlamydia Detection Rate",Nottingham,Persons,"All Ages",2017/18,2.1%
+39,"Chlamydia Detection Rate",York,Persons,"All Ages",2017/18,1.9%
+40,"Chlamydia Detection Rate",Doncaster,Persons,"All Ages",2017/18,2.4%
+41,"Chlamydia Detection Rate",Sheffield,Persons,"All Ages",2017/18,1.6%
+42,"Chlamydia Detection Rate",Leeds,Persons,"All Ages",2017/18,3.4%
+43,"Chlamydia Detection Rate",Wakefield,Persons,"All Ages",2017/18,2.1%
