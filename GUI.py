@@ -34,16 +34,16 @@ class GUI(wx.Frame):
         self.nameBox2 = wx.TextCtrl(panel)
         sizer.Add(self.nameBox2, pos=(3, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
-        sb = wx.StaticBox(panel, label="Give a short description of yourself including "
-                                       "Age, Gender, and Place of Birth")
+        sb = wx.StaticBox(panel, label="Please enter your "
+                                       "Age, Gender, and Place of Birth. Use the help prompt for more information")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
-        self.descBox = wx.TextCtrl(panel, -1, size=(500, 100))
+        self.descBox = wx.TextCtrl(panel, -1, size=(600, 100))
         boxsizer.Add(self.descBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
         sizer.Add(boxsizer, pos=(5, 0), span=(5, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
         sb = wx.StaticBox(panel, label="Results")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
-        self.answerBox = wx.TextCtrl(panel, -1, size=(500, 100), style= wx.TE_MULTILINE)
+        self.answerBox = wx.TextCtrl(panel, -1, size=(600, 100), style= wx.TE_MULTILINE)
         boxsizer.Add(self.answerBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
         sizer.Add(boxsizer, pos=(10, 0), span=(5, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
