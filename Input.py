@@ -75,17 +75,13 @@ class Language:
         elif Age <= '75':
             Age = '51-75'
 
-        print(Location)
-        print(Gender)
-        print(Age)
-
         if Gender == 'Male' or Gender == 'male':
             Gender = 'Persons'
         elif Gender == 'Female' or Gender == 'female':
             Gender = 'Persons'
 
 
-        data = pandas.read_csv("HealthData.csv", delimiter=',',index_col=0)
+        data = pandas.read_csv("HealthData.csv", delimiter=',', index_col=0)
 
         AreaFilter = data['Area_Name'] == Location
         ageFilter = data['Age'] == Age

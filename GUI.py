@@ -35,7 +35,7 @@ class GUI(wx.Frame):
         sizer.Add(self.nameBox2, pos=(3, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
         sb = wx.StaticBox(panel, label="Please enter your "
-                                       "Age, Gender, and Place of Birth. Use the help prompt for more information")
+                                       "Age, Gender, and Current Location. For example: Location: Leeds, Age: 55, Gender: Male")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
         self.descBox = wx.TextCtrl(panel, -1, size=(600, 100))
         boxsizer.Add(self.descBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
@@ -43,7 +43,7 @@ class GUI(wx.Frame):
 
         sb = wx.StaticBox(panel, label="Results")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
-        self.answerBox = wx.TextCtrl(panel, -1, size=(600, 100), style= wx.TE_MULTILINE)
+        self.answerBox = wx.TextCtrl(panel, -1, size=(600, 100), style= wx.TE_MULTILINE|wx.TE_READONLY)
         boxsizer.Add(self.answerBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
         sizer.Add(boxsizer, pos=(10, 0), span=(5, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
@@ -67,7 +67,8 @@ class GUI(wx.Frame):
     def OnButton_Help(self, event):
         help_button = wx.MessageBox('Please enter your information in this format: location: , age: , gender: ,'
                                     ' The order is not important however please include these 3 attributes.'
-                                    ' For example: Location: Leeds, Age: 55, Gender: Male',
+                                    ' You are required to enter this information so that the data set can provide'
+                                    ' you with some health information. Not entering this information will result in an error.',
                                     'Info', wx.OK | wx.ICON_INFORMATION)
 
     def OnButton_Submit(self, event):
