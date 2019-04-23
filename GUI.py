@@ -35,9 +35,9 @@ class GUI(wx.Frame):
         sizer.Add(self.nameBox2, pos=(3, 1), span=(1, 2), flag=wx.TOP|wx.EXPAND,)
 
         sb = wx.StaticBox(panel, label="Please enter your "
-                                       "Age, Gender, and Current Location. For example: Location: Leeds, Age: 55, Gender: Male")
+                                       "Current Location, Age, and Gender. For example: Location: Leeds, Age: 55, Gender: Male")
         boxsizer = wx.StaticBoxSizer(sb, wx.VERTICAL)
-        self.descBox = wx.TextCtrl(panel, -1, size=(600, 100))
+        self.descBox = wx.TextCtrl(panel, -1, value=" Location: , Age: , Gender: ", size=(600, 100))
         boxsizer.Add(self.descBox, flag=wx.LEFT|wx.TOP|wx.RIGHT, border=5)
         sizer.Add(boxsizer, pos=(5, 0), span=(5, 5), flag=wx.EXPAND|wx.TOP|wx.LEFT|wx.RIGHT , border=10)
 
@@ -83,12 +83,8 @@ class GUI(wx.Frame):
             first_name = self.nameBox1.GetValue()
             last_name = self.nameBox2.GetValue()
             description = self.descBox.GetValue()
-
             new_user = User(first_name, last_name, description);
-
             language = Language(description)
-
-            print(Language.processContent(language))
 
             results = open("results.txt", "r")
 
@@ -97,7 +93,6 @@ class GUI(wx.Frame):
 
             results.close()
 
-            print(User.display_user(new_user))
 
     def OnButton_Exit( self, event):
 
