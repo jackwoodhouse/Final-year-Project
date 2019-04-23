@@ -1,5 +1,6 @@
 import re
 import pandas
+import numpy
 
 
 class Language:
@@ -47,6 +48,8 @@ class Language:
         ageFilter = data['Age'] == Age
         genderFilter = data['Sex'] == Gender
         filter = AreaFilter & ageFilter & genderFilter
+
+        print(data[filter])
 
         open('results.txt', 'w').close()
 
