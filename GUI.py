@@ -88,12 +88,15 @@ class GUI(wx.Frame):
 
             print(Language.processContent(language))
 
+            self.answerBox.SetValue('')
+
             results = open("results.txt", "r")
 
             self.answerBox.AppendText(results.read())
             print(results.read())
 
             results.close()
+
             print(User.display_user(new_user))
 
     def OnButton_Exit( self, event):

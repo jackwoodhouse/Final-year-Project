@@ -1,3 +1,0 @@
-"Hypertension Prevalence" Sheffield Persons 51-75 2017/18 19.1%
-"Stroke Prevalence" Sheffield Persons 51-75 2017/18 1.9%
-"Coronary Heart Disease" Sheffield Persons 51-75 2014/15 2.7%
